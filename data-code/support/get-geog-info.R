@@ -1,24 +1,11 @@
-#' This function extracts various geographic information (e.g., centroid, contiguous geographies from a shapefile.)
-#'
-#' @param shape Shapefile
-#'
-#' @return data frame
-#' @export
-#'
-
-
-# shape <-  county_map %>% 
-#   subset(GEOID != "99")
-#gg <- quo(GEOID)
-
-get_geograhic_info <- function(shape,geoid = GEOID, get_contiguous = TRUE) {
+get_geographic_info <- function(shape, geoid = GEOID, get_contiguous = TRUE) {
   
   gg = enquo(geoid)
   
   df_map <-
     shape@data %>% rownames_to_column()  %>%
     rename(polygon_id = rowname) %>%
-    tbl_df() 
+    as_tibble() 
   
   centroids <- SpatialPointsDataFrame(gCentroid(shape, byid=TRUE), 
                                       shape@data, match.ID=FALSE) %>% tbl_df() %>% 
