@@ -8,7 +8,7 @@ get_geographic_info <- function(shape, geoid = GEOID, get_contiguous = TRUE) {
     as_tibble() 
   
   centroids <- SpatialPointsDataFrame(gCentroid(shape, byid=TRUE), 
-                                      shape@data, match.ID=FALSE) %>% tbl_df() %>% 
+                                      shape@data, match.ID=FALSE) %>% as_tibble() %>% 
     select(!!gg,centroid_x = x, centroid_y = y)
   if (get_contiguous) {
     contiguous <-  gTouches(shape, byid=TRUE, returnDense = FALSE,checkValidity = TRUE) 

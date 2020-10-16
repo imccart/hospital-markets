@@ -70,7 +70,7 @@ graph.dat <-
   graph_from_adjacency_matrix(up.final, weighted = TRUE) %>%
   simplify(., remove.loops = TRUE)
 
-# Run cluster_walktrap on this network. 
+# Run cluster_walktrap on this network
 initial.communities <-
   walktrap.community(graph.dat,
                      steps = 1,
@@ -83,7 +83,4 @@ walktrap.dat <- bind_cols(fips = names(market), mkt = market) %>%
   mutate(statefp = str_sub(fips,1,2))
 
 walktrap.dat %>% select(mkt) %>% unique() %>% 
-  dim()
-
-walktrap.dat %>% filter(grepl("^06",fips)) %>% select(mkt) %>% unique() %>% 
   dim()

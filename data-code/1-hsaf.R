@@ -42,7 +42,7 @@ hsaf.fips <- hsaf.zip %>%
 
 names(hsaf.fips) %>% 
   walk(
-    ~write_rds(hsaf.fips[[.x]],path = here(paste0("/data/hospital-fips-",.x,".rds")))
+    ~write_rds(hsaf.fips[[.x]],path = paste0("/data/hospital-fips-",.x,".rds"))
   )
 
 

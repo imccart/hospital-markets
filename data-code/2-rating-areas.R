@@ -1,7 +1,7 @@
 
 
 # Assign html paths -------------------------------------------------------
-rating_area_year <- as.Date(Sys.Date()) %>% lubridate::year() %>% as.character()
+rating.area.year <- as.Date(Sys.Date()) %>% lubridate::year() %>% as.character()
 base.url <- "http://www.cms.gov/CCIIO/Programs-and-Initiatives/Health-Insurance-Market-Reforms/STATE-gra.html"
 states.lc <- tolower(states)
 urls.get <- states.lc %>% map_chr(~gsub("STATE",.x,base.url))
@@ -108,6 +108,6 @@ final.rating.areas <-
   mutate(rating_area = gsub("Rating Area ","",rating_area)) %>% 
   mutate(rating_area = paste0(state,str_pad(rating_area,width=2,pad="0")))
 
-write_rds(final.rating.areas,paste0("data/rating-areas-",rating_area_year,".rds"))
+write_rds(final.rating.areas,paste0("data/rating-areas-",rating.area.year,".rds"))
 
 
