@@ -59,6 +59,6 @@ source("data-code/0-zip-code-xw.R")             ## creates zip.county object
 source("data-code/1-hsaf.R")                    ## creates hsaf.fips and hsaf.zip objects
 source("data-code/2-rating-areas.R")            ## creates county.fips and final.rating.areas objects
 source("data-code/3-county-map-data.R")         ## creates county.info object
-source("data-code/4-fit-community-detection.R") ## creates county.info object
+source("data-code/4-fit-community-detection.R") ## creates markets
 
 
