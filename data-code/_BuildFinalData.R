@@ -2,7 +2,7 @@
 ## Title:         Hospital Markets and Community Detection
 ## Author:        Ian McCarthy
 ## Date Created:  10/12/2020
-## Date Edited:   10/12/2020
+## Date Edited:   11/3/2020
 
 
 # Preliminaries -----------------------------------------------------------
@@ -61,4 +61,9 @@ source("data-code/2-rating-areas.R")            ## creates county.fips and final
 source("data-code/3-county-map-data.R")         ## creates county.info object
 source("data-code/4-fit-community-detection.R") ## creates markets
 
+
+
+# Save final market data --------------------------------------------------
+
+write_rds(walktrap.dat,"data/hospital_markets.rds")
 

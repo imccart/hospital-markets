@@ -57,7 +57,6 @@ bp.hosp.fips <-
   convert_bp(id = fips)
 
 bp.hosp.fips[is.na(bp.hosp.fips)] <- 0
-bp.hosp.fips[1:10,1:10]
 
 # Create unipartite matrix out of fips x hosp matrix
 up.final <- bp.hosp.fips %*% t(bp.hosp.fips)
@@ -81,6 +80,3 @@ initial.communities <-
 market <- membership(initial.communities)
 walktrap.dat <- bind_cols(fips = names(market), mkt = market) %>% 
   mutate(statefp = str_sub(fips,1,2))
-
-walktrap.dat %>% select(mkt) %>% unique() %>% 
-  dim()
